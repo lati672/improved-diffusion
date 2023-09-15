@@ -30,7 +30,8 @@ def model_and_diffusion_defaults():
         predict_xstart=False,
         rescale_timesteps=True,
         rescale_learned_sigmas=True,
-        use_checkpoint=False,
+        #use_checkpoint=False,
+        use_checkpoint=True,
         use_scale_shift_norm=True,
     )
 

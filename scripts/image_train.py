@@ -3,7 +3,8 @@ Train a diffusion model on images.
 """
 
 import argparse
-
+import torch
+import gc
 from improved_diffusion import dist_util, logger
 from improved_diffusion.image_datasets import load_data
 from improved_diffusion.resample import create_named_schedule_sampler
@@ -38,6 +39,8 @@ def main():
     )
 
     logger.log("training...")
+    torch.cuda.empty_cache()
+
     TrainLoop(
         model=model,
         diffusion=diffusion,
